@@ -1,7 +1,5 @@
 # Testing dsh-sisyphus locally
 
-English | [中文](TESTING.zh.md)
-
 A manual end-to-end pass over the Sisyphus preset. You need a built DeepSeek Harness and a DeepSeek API key; every step below was run during development, and scenario S2 is the exact acceptance check the preset carries.
 
 ## Prerequisites
@@ -40,7 +38,7 @@ cd ~/deepseek-harness
 pnpm dsh web
 ```
 
-The process prints a one-time URL, e.g. `dsh web: http://127.0.0.1:3099/?token=...`. Open **that exact URL** in a browser; plain `http://127.0.0.1:3080` is rejected by the trust fence.
+The process prints the URL to open, for example `dsh web: http://127.0.0.1:3099/?token=...`. Open **that exact URL** in a browser — the address, port, and any query come from what your dsh installation configured at startup, and a hand-built address may not match.
 
 ## Select the preset
 
@@ -109,7 +107,7 @@ Expected: the background child settles with a notice; `send_message` continues t
 | Preset absent from the picker | nested copy (see Install); dsh scans only one level under `.agent-presets/` |
 | Preset listed with a broken reason | the picker shows the failing rows — paste the reason when filing an issue |
 | Subagent calls fail with a depth error | your copy predates the `maxDepth` fix; re-run `install.sh` from repo HEAD |
-| Web page answers 401 | open the `?token=...` URL printed at boot, not a bare localhost URL |
+| Web page answers 401 | open the exact URL the process printed at startup, not a hand-built localhost address |
 | Model calls fail with AUTH | key missing or malformed in `~/deepseek-harness/.env` |
 | Windows | use `.\install.ps1`; shell runs through pwsh (bash is disabled on win32) |
 
