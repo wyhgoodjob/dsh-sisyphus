@@ -1,0 +1,6 @@
+name: Sisyphus
+description: >-
+  Sisyphus orchestration agent: intent-gated, decompose-and-delegate to
+  specialist subagents (explore, librarian, oracle, plan_reviewer, implementer),
+  parallel background execution, and an evidence loop.
+order: 100

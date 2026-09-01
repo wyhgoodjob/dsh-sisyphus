@@ -1,0 +1,21 @@
+{
+  "name": "dsh-sisyphus",
+  "version": "0.1.0",
+  "description": "Sisyphus orchestration agent preset for DeepSeek Harness: intent gate, decompose-and-delegate to specialist subagents, parallel execution, evidence loop.",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "presets"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "agent-preset",
+    "orchestration"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyhgoodjob/dsh-sisyphus.git"
+  }
+}
