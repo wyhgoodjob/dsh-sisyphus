@@ -8,7 +8,7 @@ An agent running this preset orchestrates instead of editing directly: it classi
 
 | Specialist subagent | Domain | Recursion |
 |---|---|---|
-| `explore` | codebase search — where is X, how does Y work | leaf (`maxDepth: 0`) |
+| `explore` | codebase search — where is X, how does Y work | leaf (`maxDepth: 1`) |
 | `librarian` | external docs, library best practices, OSS examples | leaf |
 | `oracle` | hard reasoning, architecture decisions, debugging | leaf |
 | `plan_reviewer` | critiques work plans for gaps and ambiguity | leaf |

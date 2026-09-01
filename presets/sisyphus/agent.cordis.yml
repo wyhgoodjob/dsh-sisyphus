@@ -89,8 +89,9 @@
 # composition (process singletons). This preset contributes the delegation
 # TOOLS, which resolve that host registry. Each specialist is one
 # `dsh-tool-subagent` instance under a distinct `toolName`, with its own
-# `persona` and recursion `maxDepth`. A `maxDepth: 0` makes the leaf
-# specialists unable to re-delegate, so they can only do their domain work.
+# `persona` and recursion `maxDepth`. A `maxDepth: 1` lets the parent delegate
+# once while the child itself can no longer delegate; top-level calls would be
+# rejected outright by `maxDepth: 0`.
 #
 # `tool-subagent-report` registers a continuable setup on the host singleton,
 # not a per-preset copy: it must appear once (host-plane semantics), same as
@@ -126,7 +127,7 @@
     provider: spawn
     toolName: explore
     backgroundMode: continuable
-    maxDepth: 0
+    maxDepth: 1
     persona: |-
       You are a codebase exploration specialist. Search and read only: locate files, symbols, and patterns, and explain how code works. Report file paths, symbols, and short descriptions. Never edit, write, or delete files, run mutations, or change configuration.
 
@@ -136,7 +137,7 @@
     provider: spawn
     toolName: librarian
     backgroundMode: continuable
-    maxDepth: 0
+    maxDepth: 1
     persona: |-
       You are an external-reference specialist. Find official documentation, library best practices, and open-source usage examples across the web. Report findings with sources. Never edit, write, or delete files in the workspace.
 
@@ -146,7 +147,7 @@
     provider: spawn
     toolName: oracle
     backgroundMode: continuable
-    maxDepth: 0
+    maxDepth: 1
     persona: |-
       You are a high-reasoning consultant. Reason carefully about hard problems, architectural tradeoffs, and debugging; give a clear recommendation with rationale and alternatives. Never edit, write, or delete files.
 
@@ -156,7 +157,7 @@
     provider: spawn
     toolName: plan_reviewer
     backgroundMode: continuable
-    maxDepth: 0
+    maxDepth: 1
     persona: |-
       You are a plan reviewer. Critically assess a work plan for clarity, verifiability, completeness, ambiguous scope, and missing context. List concrete gaps and corrections. Never edit, write, or delete files.
 
