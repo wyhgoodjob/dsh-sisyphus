@@ -107,13 +107,14 @@ Expected: the background child settles with a notice; `send_message` continues t
 | Preset absent from the picker | nested copy (see Install); dsh scans only one level under `.agent-presets/` |
 | Preset listed with a broken reason | the picker shows the failing rows — paste the reason when filing an issue |
 | Subagent calls fail with a depth error | your copy predates the `maxDepth` fix; re-run `install.sh` from repo HEAD |
+| Every delegation fails with `prompt section "tool:report" is already registered in this scope` | your copy still contains the `tool-subagent-report` row removed in the host-collision fix; re-run `install.sh` from repo HEAD |
 | Web page answers 401 | open the exact URL the process printed at startup, not a hand-built localhost address |
 | Model calls fail with AUTH | key missing or malformed in `~/deepseek-harness/.env` |
 | Windows | use `.\install.ps1`; shell runs through pwsh (bash is disabled on win32) |
 
 ## About the automated checks
 
-The preset repo ships no CI-driven harness boot (it is pure data); the development validation used the harness's own mount and replay machinery in a throwaway spec inside the harness checkout, plus a real-model run on `deepseek-official` — both are described in the design document `dsh-main-loop-sisyphus-spec.md` (section 9) of the harness checkout this repo was authored against.
+The preset repo ships no CI-driven harness boot (it is pure data). `tests/tool-report-collision.spec.ts` is a runnable regression spec for the one known collision class (preset vs host-plane `tool-subagent-report`); it imports harness packages, so it runs inside a built deepseek-harness checkout as described in its header. The development validation (real mount + real-model run on `deepseek-official`) is described in the design document `dsh-main-loop-sisyphus-spec.md` (section 9) of the harness checkout this repo was authored against.
 
 ## License
 

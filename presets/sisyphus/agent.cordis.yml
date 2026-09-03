@@ -93,18 +93,19 @@
 # once while the child itself can no longer delegate; top-level calls would be
 # rejected outright by `maxDepth: 0`.
 #
-# `tool-subagent-report` registers a continuable setup on the host singleton,
-# not a per-preset copy: it must appear once (host-plane semantics), same as
-# the shipped `standard` preset leaves it out of its own isolate realm.
+# `tool-subagent-report` is deliberately absent: it registers a CONTINUABLE
+# SETUP on the host subagent registry (not a tool this agent calls), and the
+# setup list is not scope-aware. The shipped host composition mounts it once
+# process-wide; a second copy here would register the child `report` prompt
+# section twice and fail every delegation with "tool:report is already
+# registered in this scope". Hosts without it simply lack the child report
+# channel.
 
 - id: tool-subagent-control
   name: '@deepseek-ai/dsh-tool-subagent-control'
 
 - id: tool-subagent-list-agents
   name: '@deepseek-ai/dsh-tool-subagent-control/list-agents'
-
-- id: tool-subagent-report
-  name: '@deepseek-ai/dsh-tool-subagent-report'
 
 - id: tool-subagent
   name: '@deepseek-ai/dsh-tool-subagent'
