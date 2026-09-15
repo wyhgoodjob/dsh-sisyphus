@@ -78,6 +78,7 @@ and point the roster at the installed package:
 
 ## Requirements
 
+- A DeepSeek Harness whose persona row uses the `prefix` field (`@deepseek-ai/dsh-persona` ≥ `0.1.3-alpha.2`; the current `0.1.5-rc`/`0.1.6-alpha` lines). On older harnesses that still take `text`, the preset fails to mount with `$.prefix missing required value`.
 - DeepSeek Harness with the `spawn` and `fork` subagent backends in its host composition (both ship with the standard app).
 - The subagent providers must advertise `depthLimit`, `persona`, `toolFilter`, and `prepareContinuable` capability — the in-process `spawn`/`fork` backends do.
 

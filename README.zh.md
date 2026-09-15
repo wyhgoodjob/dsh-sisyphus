@@ -78,6 +78,7 @@ dsh plugin --profile web add github:wyhgoodjob/dsh-sisyphus
 
 ## 环境要求
 
+- DeepSeek Harness 的 persona 行需使用 `prefix` 字段(`@deepseek-ai/dsh-persona` ≥ `0.1.3-alpha.2`;当前 `0.1.5-rc`/`0.1.6-alpha` 线)。更旧的 harness 仍取 `text`,本 preset 会以 `$.prefix missing required value` 挂载失败。
 - DeepSeek Harness,其 host 组合中包含 `spawn` 与 `fork` 子代理后端(标准应用自带)。
 - 子代理 provider 需具备 `depthLimit`、`persona`、`toolFilter`、`prepareContinuable` 能力——进程内 `spawn`/`fork` 后端均满足。
 

@@ -106,6 +106,7 @@ Expected: the background child settles with a notice; `send_message` continues t
 |---|---|
 | Preset absent from the picker | nested copy (see Install); dsh scans only one level under `.agent-presets/` |
 | Preset listed with a broken reason | the picker shows the failing rows — paste the reason when filing an issue |
+| Preset fails to mount with `invalid config: $.prefix missing required value` | your copy still carries the old persona `text` field; re-run `install.sh` from repo HEAD (persona migrated to the `prefix` schema) |
 | Subagent calls fail with a depth error | your copy predates the `maxDepth` fix; re-run `install.sh` from repo HEAD |
 | Every delegation fails with `prompt section "tool:report" is already registered in this scope` | your copy still contains the `tool-subagent-report` row removed in the host-collision fix; re-run `install.sh` from repo HEAD |
 | Web page answers 401 | open the exact URL the process printed at startup, not a hand-built localhost address |
